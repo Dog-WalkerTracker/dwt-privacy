@@ -25,6 +25,8 @@
     .new-badge { display: inline-flex; background: #16864A; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 5px; letter-spacing: 0.5px; vertical-align: middle; margin-left: 5px; }
     .beacon-box { background: #E6F0EA; border: 1px solid #16864A; border-radius: 12px; padding: 16px 18px; margin: 16px 0; }
     .beacon-box h3 { margin-top: 0; }
+    .integration-box { background: #f0f7ff; border: 1px solid #3b82f6; border-radius: 12px; padding: 16px 18px; margin: 16px 0; }
+    .integration-box h3 { margin-top: 0; color: #1d4ed8; }
     strong { color: #0f172a; }
     .footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 13px; color: #94a3b8; }
   </style>
@@ -38,30 +40,30 @@
   </div>
 
   <h1>Privacy Policy</h1>
-  <p class="meta">Last updated: April 2026 &nbsp;·&nbsp; Effective date: April 2026</p>
+  <p class="meta">Last updated: May 2026 &nbsp;·&nbsp; Effective date: April 2026</p>
 
   <div class="summary">
-    <strong>Summary:</strong> PawPoint is a personal business management tool for dog walkers. We collect only the data you enter to run your business, plus optional GPS location data if you choose to enable the Beacon safety feature. We do not sell your data, use it for advertising, or share it with third parties except the infrastructure providers needed to operate the app.
+    <strong>Summary:</strong> PawPoint is a personal business management tool for dog walkers. We collect only the data you enter to run your business, plus optional GPS location data if you choose to enable the Beacon safety feature, and optional accounting integration data if you connect Xero or QuickBooks Online. We do not sell your data, use it for advertising, or share it with third parties except the infrastructure providers needed to operate the app.
   </div>
 
   <!-- 1 -->
   <h2>1. Who We Are</h2>
   <p>PawPoint is an independent mobile application developed for professional dog walkers to manage clients, bookings, invoices, monthly reporting, and personal safety during walks. References to "we", "us" or "our" refer to the developer of PawPoint.</p>
-  <p>If you have any questions about this policy, please contact us at the address listed in section 12.</p>
+  <p>If you have any questions about this policy, please contact us at the address listed in section 13.</p>
 
   <!-- 2 -->
   <h2>2. What Data We Collect and Why</h2>
-  <p>We collect only the data you voluntarily enter into the app, plus optional location data if you enable the Beacon feature. We do not collect data automatically beyond what is necessary to operate the service.</p>
+  <p>We collect only the data you voluntarily enter into the app, plus optional location data if you enable the Beacon feature, and optional accounting data if you connect an accounting integration. We do not collect data automatically beyond what is necessary to operate the service.</p>
 
   <h3>Account data</h3>
   <ul>
-    <li><strong>Email address and password</strong> — used to create and authenticate your account via Supabase Auth.</li>
+    <li><strong>Email address</strong> — used to create and authenticate your account via Supabase Auth using a one-time passcode. No password is stored.</li>
   </ul>
 
   <h3>Business data you enter</h3>
   <ul>
     <li><strong>Owner records</strong> — name, mobile number, email address, home address, and any optional fields you choose to enable (such as emergency contact details or consents). Used solely to manage your client relationships and send WhatsApp invoice summaries.</li>
-    <li><strong>Dog records</strong> — dog names, hourly rates, owner assignments, and any optional fields you choose to enable (such as breed, date of birth, or notes). Used to create bookings and calculate fees.</li>
+    <li><strong>Dog records</strong> — dog names, hourly rates, owner assignments, and any optional fields you choose to enable (such as breed, date of birth, health information, vaccination records, vet details, or notes). Used to create bookings and calculate fees.</li>
     <li><strong>Bookings</strong> — dates, times, services, fees, and notes for each walk. Used to display your calendar, generate monthly reports, and create invoices.</li>
     <li><strong>Calendar entries</strong> — miles driven per day. Used in monthly reporting.</li>
     <li><strong>Invoices</strong> — generated automatically from your booking data. Stored so you can track payment status and send summaries to clients.</li>
@@ -72,6 +74,13 @@
   <h3>Notification and feature preferences</h3>
   <ul>
     <li>Your email address for monthly report delivery, your WhatsApp message template, cancellation policy settings, and field visibility preferences. Stored only to power features you explicitly enable.</li>
+  </ul>
+
+  <h3>Accounting integration data <span class="new-badge">NEW</span></h3>
+  <ul>
+    <li><strong>OAuth access and refresh tokens</strong> — when you connect Xero or QuickBooks Online, we store encrypted authorisation tokens on our servers. These are never exposed to the app client and are used only to push invoice and contact data to your chosen accounting system.</li>
+    <li><strong>Organisation / company name</strong> — fetched from your accounting provider on connection and displayed in Settings so you can confirm which account is linked.</li>
+    <li><strong>Invoice sync status</strong> — whether each invoice has been successfully pushed to your accounting provider, and whether payment has been recorded there.</li>
   </ul>
 
   <h3>Beacon location data <span class="new-badge">NEW</span></h3>
@@ -98,6 +107,7 @@
     <li>Sending your monthly report to your chosen email address via Resend</li>
     <li>Opening a pre-filled WhatsApp message to your clients (the message is composed on your device — we do not send WhatsApp messages on your behalf)</li>
     <li>Generating PDF invoices for download or sharing</li>
+    <li><strong>Accounting integrations:</strong> If you connect Xero or QuickBooks Online, pushing invoice and contact data to your chosen accounting system, and receiving payment status updates back from that system via webhook.</li>
     <li><strong>Beacon:</strong> Recording your GPS route during an active safety session, making your live location accessible via your unique share link, and pre-filling an SMS to your emergency contact with that link.</li>
   </ul>
   <p>We do not use your data for advertising, profiling, analytics, or any purpose other than operating the features you use.</p>
@@ -106,14 +116,47 @@
   <h2>4. Third Parties We Share Data With</h2>
   <p>We share data with the following service providers solely to operate the app. None of these parties use your data for their own purposes.</p>
   <ul>
-    <li><strong>Supabase</strong> (supabase.com) — our database, authentication, and backend infrastructure provider. All data including Beacon location points is stored on Supabase's servers hosted in the EU (eu-west region). Supabase acts as a data processor under GDPR. See <a href="https://supabase.com/privacy">Supabase's Privacy Policy</a>.</li>
+    <li><strong>Supabase</strong> (supabase.com) — our database, authentication, and backend infrastructure provider. All data including Beacon location points is stored on Supabase's servers hosted on AWS infrastructure. Supabase acts as a data processor under GDPR. See <a href="https://supabase.com/privacy">Supabase's Privacy Policy</a>.</li>
     <li><strong>Resend</strong> (resend.com) — used to deliver your monthly report email. Your report email address is passed to Resend only when a report is sent. See <a href="https://resend.com/legal/privacy-policy">Resend's Privacy Policy</a>.</li>
     <li><strong>GitHub Pages</strong> (github.com) — hosts the Beacon share page. When your emergency contact visits your share link, the page is served by GitHub Pages. The page then fetches your session data directly from Supabase using your anonymous share token. GitHub Pages does not have access to your personal data. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's Privacy Statement</a>.</li>
+    <li><strong>Xero</strong> (xero.com) — if you choose to connect Xero, invoice and client contact data is sent to your Xero organisation. Xero may send payment status updates back to PawPoint. See <a href="https://www.xero.com/uk/about/terms/privacy/">Xero's Privacy Policy</a>.</li>
+    <li><strong>Intuit / QuickBooks Online</strong> (intuit.com) — if you choose to connect QuickBooks Online, invoice and client contact data is sent to your QuickBooks company file. QuickBooks may send payment status updates back to PawPoint. See <a href="https://www.intuit.com/privacy/statement/">Intuit's Privacy Policy</a>.</li>
   </ul>
   <p>We do not share your data with any advertising networks, data brokers, analytics platforms, or any other third parties.</p>
 
-  <!-- 5 -->
-  <h2>5. Beacon — Location Tracking Detail <span class="beacon-badge">🐾 Beacon</span></h2>
+  <!-- 5 — NEW: Accounting integrations -->
+  <h2>5. Accounting Integrations — Xero &amp; QuickBooks Online <span class="new-badge">NEW</span></h2>
+
+  <div class="integration-box">
+    <h3>🧾 Optional — enabled only when you connect an integration</h3>
+    <p>Accounting integrations are entirely opt-in and can be disconnected at any time from <strong>Settings → Integrations</strong>. Disconnecting immediately revokes PawPoint's access and deletes the stored tokens.</p>
+  </div>
+
+  <h3>What data is shared</h3>
+  <p>When you connect Xero or QuickBooks Online and push an invoice, the following data is sent to your accounting provider:</p>
+  <ul>
+    <li>Owner name and email address (to create or match a Contact / Customer in your accounting system)</li>
+    <li>Invoice number, date, due date, and line items (dog names, dates, services, and fees)</li>
+    <li>Invoice total amount</li>
+  </ul>
+  <p>No dog health records, walk notes, addresses, or any data beyond invoice and contact details are ever sent to accounting providers.</p>
+
+  <h3>What data is received back</h3>
+  <p>When an invoice is marked as paid or voided in Xero or QuickBooks, those systems send a webhook notification to PawPoint. PawPoint then fetches the updated invoice status and marks the corresponding PawPoint invoice as paid or voided. No other data is received from accounting providers.</p>
+
+  <h3>Token storage and security</h3>
+  <p>OAuth access tokens and refresh tokens for Xero and QuickBooks are stored securely on our Supabase backend. They are:</p>
+  <ul>
+    <li>Never transmitted to or stored on your device</li>
+    <li>Accessible only by PawPoint's server-side functions — never by the app client</li>
+    <li>Deleted immediately when you disconnect the integration or delete your account</li>
+  </ul>
+
+  <h3>PawPoint is always the source of truth</h3>
+  <p>Your invoices, bookings, and client records remain in PawPoint regardless of whether you connect an accounting integration. Disconnecting Xero or QuickBooks does not affect any data held within PawPoint.</p>
+
+  <!-- 6 — was 5 -->
+  <h2>6. Beacon — Location Tracking Detail <span class="beacon-badge">🐾 Beacon</span></h2>
 
   <h3>When tracking occurs</h3>
   <p>Location tracking only occurs when all three of the following are true:</p>
@@ -134,26 +177,30 @@
   <p>Your live route is accessible only to anyone who has your unique Beacon share link. You control who receives this link — it is only shared when you tap "Send Safety Link" and choose to send it via SMS or another messaging app. The link contains a 32-character random token and is not guessable. It does not contain your name, email, or any other identifying information.</p>
 
   <h3>Share link expiry</h3>
-  <p>Your share link remains accessible until the session ends or the underlying data is deleted (see section 8). After 90 days, the location data is deleted and the share link will show no route data.</p>
+  <p>Your share link remains accessible until the session ends or the underlying data is deleted (see section 9). After 90 days, the location data is deleted and the share link will show no route data.</p>
 
-  <!-- 6 -->
-  <h2>6. WhatsApp Integration</h2>
+  <!-- 7 — was 6 -->
+  <h2>7. WhatsApp Integration</h2>
   <p>When you tap the WhatsApp send button on an invoice, the app opens WhatsApp on your device with a pre-composed message. The client's mobile number and the message text are passed to WhatsApp via a standard device link. We do not transmit this data to our servers or to WhatsApp independently. WhatsApp's own privacy policy governs what happens after you tap send in WhatsApp.</p>
 
-  <!-- 7 -->
-  <h2>7. Data Storage and Security</h2>
-  <p>Your data is stored securely in Supabase's EU (eu-west) region. Access is protected by:</p>
+  <!-- 8 — was 7 -->
+  <h2>8. Data Storage and Security</h2>
+  <p>Your data is stored securely in Supabase on AWS infrastructure. Access is protected by:</p>
   <ul>
     <li>Supabase Authentication — only you can access your account</li>
     <li>Row Level Security — database rules ensure each user can only access their own data</li>
     <li>Encrypted connections (HTTPS/TLS) for all data in transit</li>
+    <li>Accounting integration tokens stored server-side only, never exposed to the device</li>
   </ul>
   <p>Beacon location data is additionally protected by the share token model — location points can only be retrieved if you know the session's unique 32-character token.</p>
   <p>We do not store any data locally on your device beyond what is temporarily cached by the app during a session.</p>
 
-  <!-- 8 -->
-  <h2>8. Data Retention and Deletion</h2>
-  <p>Your data is retained for as long as your account is active, with the following specific rules for Beacon data:</p>
+  <!-- 9 — was 8 -->
+  <h2>9. Data Retention and Deletion</h2>
+  <p>Your data is retained for as long as your account is active, with the following specific rules:</p>
+
+  <h3>Accounting integration tokens</h3>
+  <p>OAuth tokens for Xero and QuickBooks Online are deleted immediately when you disconnect the integration from Settings, or when you delete your account. Disconnecting does not affect the invoices already sent to your accounting provider — those remain in Xero or QuickBooks and are governed by their respective data retention policies.</p>
 
   <h3>Beacon location data retention <span class="beacon-badge">🐾 Beacon</span></h3>
   <ul>
@@ -164,7 +211,7 @@
   <p>You can stop any active session at any time from the Beacon screen, which immediately ceases all further location recording for that session.</p>
 
   <h3>Deleting your account</h3>
-  <p>You can permanently delete your account and all associated data directly inside PawPoint. Go to <strong>Settings → Account → Delete Account</strong>. You will be shown a summary of exactly what will be deleted, asked to enter your account password, and required to confirm the action is irreversible. Once confirmed, the following is permanently and immediately removed:</p>
+  <p>You can permanently delete your account and all associated data directly inside PawPoint. Go to <strong>Settings → Account → Delete Account</strong>. You will be shown a summary of exactly what will be deleted and required to confirm the action is irreversible. Once confirmed, the following is permanently and immediately removed:</p>
   <ul>
     <li>All bookings, calendar entries, and walk history</li>
     <li>All dog and owner records</li>
@@ -172,34 +219,36 @@
     <li>All service configurations and non-working days</li>
     <li>All notification preferences and WhatsApp templates</li>
     <li>All Beacon sessions, location points, and emergency contact details</li>
-    <li>Your authentication account (email and password)</li>
+    <li>All accounting integration tokens and sync records (Xero, QuickBooks)</li>
+    <li>Your authentication account (email address)</li>
   </ul>
   <p>This deletion is permanent and cannot be undone. There is no grace period or recovery option once confirmed.</p>
-  <p>You may also request deletion by contacting us at the address in section 12. We will permanently delete your account and all data within 30 days of a verified request.</p>
+  <p>You may also request deletion by contacting us at the address in section 13. We will permanently delete your account and all data within 30 days of a verified request.</p>
 
-  <!-- 9 -->
-  <h2>9. Your Rights (GDPR)</h2>
-  <p>As the app is operated from the UK and your data is stored in the EU, both UK GDPR and EU GDPR apply. You have the following rights:</p>
+  <!-- 10 — was 9 -->
+  <h2>10. Your Rights (GDPR)</h2>
+  <p>As the app is operated from the UK and your data is stored on infrastructure in the US (AWS), UK GDPR applies. You have the following rights:</p>
   <ul>
     <li><strong>Right of access</strong> — request a copy of the data we hold about you, including any Beacon location history</li>
     <li><strong>Right to rectification</strong> — correct inaccurate data (most data can be edited directly in the app)</li>
-    <li><strong>Right to erasure</strong> — request deletion of your account and all data, including location history</li>
+    <li><strong>Right to erasure</strong> — request deletion of your account and all data, including location history and integration tokens</li>
     <li><strong>Right to data portability</strong> — request your data in a portable format</li>
     <li><strong>Right to object</strong> — object to any processing you believe is not justified</li>
-    <li><strong>Right to withdraw consent</strong> — you can disable Beacon at any time in Settings, which prevents any further location data collection</li>
+    <li><strong>Right to withdraw consent</strong> — you can disable Beacon or disconnect accounting integrations at any time in Settings, which prevents any further data collection or sharing for those features</li>
   </ul>
-  <p>To exercise any of these rights, contact us at the address in section 12. We will respond within 30 days.</p>
+  <p>To exercise any of these rights, contact us at the address in section 13. We will respond within 30 days.</p>
+  <p>You also have the right to lodge a complaint with the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk">ico.org.uk</a>.</p>
 
-  <!-- 10 -->
-  <h2>10. Children's Privacy</h2>
+  <!-- 11 — was 10 -->
+  <h2>11. Children's Privacy</h2>
   <p>PawPoint is intended for professional use by adults. We do not knowingly collect data from anyone under the age of 16. If you believe a minor has provided us with personal data, please contact us and we will delete it promptly.</p>
 
-  <!-- 11 -->
-  <h2>11. Changes to This Policy</h2>
+  <!-- 12 — was 11 -->
+  <h2>12. Changes to This Policy</h2>
   <p>We may update this privacy policy from time to time. We will notify you of material changes by updating the "Last updated" date at the top of this page. Continued use of the app after changes are posted constitutes acceptance of the updated policy.</p>
 
-  <!-- 12 -->
-  <h2>12. Contact Us</h2>
+  <!-- 13 — was 12 -->
+  <h2>13. Contact Us</h2>
   <p>For any privacy-related questions, data requests, or to request account deletion:</p>
   <p>
     <strong>PawPoint</strong><br />
@@ -208,9 +257,10 @@
   </p>
 
   <div class="footer">
-    PawPoint · Privacy Policy · Last updated April 2026
+    PawPoint · Privacy Policy · Last updated May 2026
   </div>
 
 </div>
 </body>
 </html>
+
